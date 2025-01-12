@@ -42,31 +42,38 @@ textarea {
 
 /* Highlight colors for different parts of speech */
 .noun {
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; /* Gray */
+    color: black; /* Text color */
 }
 
 .verb {
-    background-color: #cae9ff;
+    background-color: #cae9ff; /* Light blue */
+    color: black; /* Text color */
 }
 
 .adjective {
-    background-color: #ffe4cc;
+    background-color: #ffe4cc; /* Light peach */
+    color: black; /* Text color */
 }
 
 .adverb {
-    background-color: #d4edda;
+    background-color: #d4edda; /* Light green */
+    color: black; /* Text color */
 }
 
 .pronoun {
-    background-color: #ffd4d4;
+    background-color: #ffd4d4; /* Light pink */
+    color: black; /* Text color */
 }
 
 .preposition {
-    background-color: #d4b9fb;
+    background-color: #d4b9fb; /* Light purple */
+    color: black; /* Text color */
 }
 
 .contraction {
-    background-color: #ffd700;
+    background-color: #ffd700; /* Yellow */
+    color: black; /* Text color */
 }
 
 /* Legend styles */
@@ -89,9 +96,9 @@ textarea {
     display: inline-block;
     margin-right: 15px;
     margin-bottom: 10px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    background-color: #e9ecef;
+    padding: 8px 12px; /* Padding for better touch targets */
+    border-radius: 4px; /* Rounded corners */
+    color: black; /* Default text color */
 }
 
 .legend-item span {
