@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Highlighter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/compromise"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Grammar Highlighter</h1>
+        <button id="suggestButton" class="suggest-button">Suggest a Paragraph</button>
+        <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+        <div class="legend">
+            <h3>Color Key:</h3>
+            <div class="legend-item">
+                <span class="noun" title="A word that represents a person, place, thing, or idea.">Noun <span class="info-icon" title="A word that represents a person, place, thing, or idea.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="verb" title="A word that describes an action, occurrence, or state of being.">Verb <span class="info-icon" title="A word that describes an action, occurrence, or state of being.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="adjective" title="A word that describes a noun or pronoun.">Adjective <span class="info-icon" title="A word that describes a noun or pronoun.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="adverb" title="A word that modifies a verb, an adjective, or another adverb.">Adverb <span class="info-icon" title="A word that modifies a verb, an adjective, or another adverb.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="pronoun" title="A word that takes the place of a noun.">Pronoun <span class="info-icon" title="A word that takes the place of a noun.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="preposition" title="A word that shows the relationship of a noun or pronoun to another word.">Preposition <span class="info-icon" title="A word that shows the relationship of a noun or pronoun to another word.">i</span></span>
+            </div>
+            <div class="legend-item">
+                <span class="contraction" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">Contraction <span class="info-icon" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">i</span></span>
+            </div>
+        </div>
+        <div id="highlightedText"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
