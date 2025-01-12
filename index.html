@@ -8,53 +8,59 @@
     <script src="https://unpkg.com/compromise"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="header">
         <h1>Grammar Highlighter</h1>
-        <button id="suggestButton" class="suggest-button">Suggest a Paragraph</button>
-        <textarea id="inputText" placeholder="Paste your text here..."></textarea>
-        <div class="legend">
-            <h3>Color Key:</h3>
-            <div class="legend-item">
-                <span class="noun" title="A word that represents a person, place, thing, or idea.">Noun <span class="info-icon" title="A word that represents a person, place, thing, or idea.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="verb" title="A word that describes an action, occurrence, or state of being.">Verb <span class="info-icon" title="A word that describes an action, occurrence, or state of being.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="adjective" title="A word that describes a noun or pronoun.">Adjective <span class="info-icon" title="A word that describes a noun or pronoun.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="adverb" title="A word that modifies a verb, an adjective, or another adverb.">Adverb <span class="info-icon" title="A word that modifies a verb, an adjective, or another adverb.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="pronoun" title="A word that takes the place of a noun.">Pronoun <span class="info-icon" title="A word that takes the place of a noun.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="preposition" title="A word that shows the relationship of a noun or pronoun to another word.">Preposition <span class="info-icon" title="A word that shows the relationship of a noun or pronoun to another word.">i</span></span>
-            </div>
-            <div class="legend-item">
-                <span class="contraction" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">Contraction <span class="info-icon" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">i</span></span>
-            </div>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+            <button id="suggestButton" class="suggest-button">Suggest a Paragraph</button>
+            <div id="highlightedText"></div>
         </div>
-        <div id="highlightedText"></div>
-        <div id="wordCounts" class="word-counts">
-            <h3>Word Counts</h3>
-            <div class="count-item"><span class="noun">Nouns: <span id="nounCount">0</span></span></div>
-            <div class="count-item"><span class="verb">Verbs: <span id="verbCount">0</span></span></div>
-            <div class="count-item"><span class="adjective">Adjectives: <span id="adjectiveCount">0</span></span></div>
-            <div class="count-item"><span class="adverb">Adverbs: <span id="adverbCount">0</span></span></div>
-            <div class="count-item"><span class="pronoun">Pronouns: <span id="pronounCount">0</span></span></div>
-            <div class="count-item"><span class="preposition">Prepositions: <span id="prepositionCount">0</span></span></div>
-            <div class="count-item"><span class="contraction">Contractions: <span id="contractionCount">0</span></span></div>
-        </div>
-        <div id="readabilityStats" class="readability-stats">
-            <h3>Readability Stats</h3>
-            <div class="stat-item">Letters: <span id="letterCount">0</span></div>
-            <div class="stat-item">Characters: <span id="characterCount">0</span></div>
-            <div class="stat-item">Words: <span id="totalWordCount">0</span></div>
-            <div class="stat-item">Sentences: <span id="sentenceCount">0</span></div>
-            <div class="stat-item">Paragraphs: <span id="paragraphCount">0</span></div>
-            <div class="stat-item">Reading time: <span id="readingTime">0</span> min</div>
+        <div class="sidebar">
+            <div id="wordCounts" class="word-counts">
+                <h3>Word Counts</h3>
+                <div class="count-item"><span class="noun">Nouns: <span id="nounCount">0</span></span></div>
+                <div class="count-item"><span class="verb">Verbs: <span id="verbCount">0</span></span></div>
+                <div class="count-item"><span class="adjective">Adjectives: <span id="adjectiveCount">0</span></span></div>
+                <div class="count-item"><span class="adverb">Adverbs: <span id="adverbCount">0</span></span></div>
+                <div class="count-item"><span class="pronoun">Pronouns: <span id="pronounCount">0</span></span></div>
+                <div class="count-item"><span class="preposition">Prepositions: <span id="prepositionCount">0</span></span></div>
+                <div class="count-item"><span class="contraction">Contractions: <span id="contractionCount">0</span></span></div>
+            </div>
+            <div id="readabilityStats" class="readability-stats">
+                <h3>Readability Stats</h3>
+                <div class="stat-item">Letters: <span id="letterCount">0</span></div>
+                <div class="stat-item">Characters: <span id="characterCount">0</span></div>
+                <div class="stat-item">Words: <span id="totalWordCount">0</span></div>
+                <div class="stat-item">Sentences: <span id="sentenceCount">0</span></div>
+                <div class="stat-item">Paragraphs: <span id="paragraphCount">0</span></div>
+                <div class="stat-item">Reading time: <span id="readingTime">0</span> min</div>
+            </div>
+            <div class="legend">
+                <h3>Color Key:</h3>
+                <div class="legend-item">
+                    <span class="noun" title="A word that represents a person, place, thing, or idea.">Noun <span class="info-icon" title="A word that represents a person, place, thing, or idea.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="verb" title="A word that describes an action, occurrence, or state of being.">Verb <span class="info-icon" title="A word that describes an action, occurrence, or state of being.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="adjective" title="A word that describes a noun or pronoun.">Adjective <span class="info-icon" title="A word that describes a noun or pronoun.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="adverb" title="A word that modifies a verb, an adjective, or another adverb.">Adverb <span class="info-icon" title="A word that modifies a verb, an adjective, or another adverb.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="pronoun" title="A word that takes the place of a noun.">Pronoun <span class="info-icon" title="A word that takes the place of a noun.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="preposition" title="A word that shows the relationship of a noun or pronoun to another word.">Preposition <span class="info-icon" title="A word that shows the relationship of a noun or pronoun to another word.">i</span></span>
+                </div>
+                <div class="legend-item">
+                    <span class="contraction" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">Contraction <span class="info-icon" title="A shortened form of a word or group of words, with the omitted letters often replaced by an apostrophe.">i</span></span>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
