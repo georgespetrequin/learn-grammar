@@ -11,6 +11,8 @@ const sampleParagraphs = [
 function processText(text) {
     if (!text) {
         document.getElementById('highlightedText').innerHTML = '';
+        resetCounts();
+        resetReadabilityStats();
         return;
     }
 
@@ -79,10 +81,8 @@ function processText(text) {
     });
 
     // Apply highlights to the text
-    // Sort words by length (descending) to handle cases where words might be substrings of others
     const sortedWords = Array.from(words.entries()).sort((a, b) => b[0].length - a[0].length);
     
-    // Create a temporary element to safely handle HTML
     const tempElement = document.createElement('div');
     tempElement.textContent = text;
     let processedText = tempElement.innerHTML;
@@ -93,6 +93,71 @@ function processText(text) {
     });
 
     document.getElementById('highlightedText').innerHTML = processedText;
+    updateCounts(words);
+    updateReadabilityStats(text);
+}
+
+// Function to reset counts
+function resetCounts() {
+    document.getElementById('nounCount').textContent = 0;
+    document.getElementById('verbCount').textContent = 0;
+    document.getElementById('adjectiveCount').textContent = 0;
+    document.getElementById('adverbCount').textContent = 0;
+    document.getElementById('pronounCount').textContent = 0;
+    document.getElementById('prepositionCount').textContent = 0;
+    document.getElementById('contractionCount').textContent = 0;
+}
+
+// Function to reset readability stats
+function resetReadabilityStats() {
+    document.getElementById('letterCount').textContent = 0;
+    document.getElementById('characterCount').textContent = 0;
+    document.getElementById('totalWordCount').textContent = 0;
+    document.getElementById('sentenceCount').textContent = 0;
+    document.getElementById('paragraphCount').textContent = 0;
+    document.getElementById('readingTime').textContent = '0';
+}
+
+// Function to update counts
+function updateCounts(words) {
+    const counts = {
+        noun: 0,
+        verb: 0,
+        adjective: 0,
+        adverb: 0,
+        pronoun: 0,
+        preposition: 0,
+        contraction: 0
+    };
+
+    words.forEach((type) => {
+        counts[type]++;
+    });
+
+    document.getElementById('nounCount').textContent = counts.noun;
+    document.getElementById('verbCount').textContent = counts.verb;
+    document.getElementById('adjectiveCount').textContent = counts.adjective;
+    document.getElementById('adverbCount').textContent = counts.adverb;
+    document.getElementById('pronounCount').textContent = counts.pronoun;
+    document.getElementById('prepositionCount').textContent = counts.preposition;
+    document.getElementById('contractionCount').textContent = counts.contraction;
+}
+
+// Function to update readability stats
+function updateReadabilityStats(text) {
+    const letters = text.replace(/\s/g, '').length; // Count letters
+    const characters = text.length; // Count characters
+    const words = text.split(/\s+/).filter(word => word.length > 0).length; // Count words
+    const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length; // Count sentences
+    const paragraphs = text.split(/\n+/).filter(paragraph => paragraph.trim().length > 0).length; // Count paragraphs
+    const readingTime = Math.ceil(words / 200); // Estimate reading time (200 words per minute)
+
+    document.getElementById('letterCount').textContent = letters;
+    document.getElementById('characterCount').textContent = characters;
+    document.getElementById('totalWordCount').textContent = words;
+    document.getElementById('sentenceCount').textContent = sentences;
+    document.getElementById('paragraphCount').textContent = paragraphs;
+    document.getElementById('readingTime').textContent = readingTime;
 }
 
 // Event listener for text input
